@@ -8,8 +8,8 @@ units(length = "cm", time = "s", quantity = "mol", act_energy = "cal/mol")
 
 
 ideal_gas(name = "gri30",
-      elements = " O  H  C  N  Ar ",
-      species = """ C(gr) H2  H  O  O2  OH  H2O  HO2  H2O2  C  CH 
+      elements = " O  H  C  N  Ar He ",
+      species = """ HE H2  H  O  O2  OH  H2O  HO2  H2O2  C  CH 
                    CH2  CH2(S)  CH3  CH4  CO  CO2  HCO  CH2O  CH2OH  CH3O 
                    CH3OH  C2H  C2H2  C2H3  C2H4  C2H5  C2H6  HCCO  CH2CO  HCCOH 
                    N  NH  NH2  NH3  NNH  NO  NO2  N2O  HNO  CN 
@@ -20,8 +20,8 @@ ideal_gas(name = "gri30",
                         pressure = OneAtm)    )
 
 ideal_gas(name = "gri30_mix",
-      elements = " O  H  C  N  Ar ",
-      species = """ C(gr) H2  H  O  O2  OH  H2O  HO2  H2O2  C  CH 
+      elements = " O  H  C  N  Ar He ",
+      species = """ HE H2  H  O  O2  OH  H2O  HO2  H2O2  C  CH 
                    CH2  CH2(S)  CH3  CH4  CO  CO2  HCO  CH2O  CH2OH  CH3O 
                    CH3OH  C2H  C2H2  C2H3  C2H4  C2H5  C2H6  HCCO  CH2CO  HCCOH 
                    N  NH  NH2  NH3  NNH  NO  NO2  N2O  HNO  CN 
@@ -34,8 +34,8 @@ ideal_gas(name = "gri30_mix",
 
 
 ideal_gas(name = "gri30_multi",
-      elements = " O  H  C  N  Ar ",
-      species = """ C(gr) H2  H  O  O2  OH  H2O  HO2  H2O2  C  CH 
+      elements = " O  H  C  N  Ar He ",
+      species = """ HE H2  H  O  O2  OH  H2O  HO2  H2O2  C  CH 
                    CH2  CH2(S)  CH3  CH4  CO  CO2  HCO  CH2O  CH2OH  CH3O 
                    CH3OH  C2H  C2H2  C2H3  C2H4  C2H5  C2H6  HCCO  CH2CO  HCCOH 
                    N  NH  NH2  NH3  NNH  NO  NO2  N2O  HNO  CN 
@@ -51,31 +51,18 @@ ideal_gas(name = "gri30_multi",
 #-------------------------------------------------------------------------------
 #  Species data 
 #-------------------------------------------------------------------------------
-stoichiometric_solid(name = "graphite",
-                     elements = "C",
-                     species = "C(gr)",
-                     density = (2.16, 'g/cm3'),
-                     initial_state = state(temperature = 300.0,
-                                           pressure = OneAtm)
-                     )
-
-species(name = "C(gr)",
-    atoms = " C:1 ",
+species(name = "HE",
+    atoms = " He:1 ",
     thermo = (
-       NASA( [  200.00,  1000.00], [ -3.108720720E-01,   4.403536860E-03,
-                1.903941180E-06,  -6.385469660E-09,   2.989642480E-12,
-               -1.086507940E+02,   1.113829530E+00] ),
-       NASA( [ 1000.00,  5000.00], [  1.455718290E+00,   1.717022160E-03,
-               -6.975627860E-07,   1.352770320E-10,  -9.675906520E-15,
-               -6.951388140E+02,  -8.525830330E+00] )
-             ),
-    transport = gas_transport(
-                     geom = "atom",
-                     diam =     2.05,
-                     well_depth =   145.00),
-    note = "L 7/88"
+       NASA( [  200.00,  1000.00], [  2.500000000E+00,   0.000000000E+00, 
+                0.000000000E+00,   0.000000000E+00,   0.000000000E+00,
+               -7.453750000E+02,   9.287247240E-01] ),
+       NASA( [ 1000.00,  6000.00], [  2.500000000E+00,   0.000000000E+00, 
+                0.000000000E+00,   0.000000000E+00,   0.000000000E+00,
+               -7.453750000E+02,   9.287247240E-01] )
+             )
+    # note = "L10/90"
        )
-
 species(name = "H2",
     atoms = " H:2 ",
     thermo = (
